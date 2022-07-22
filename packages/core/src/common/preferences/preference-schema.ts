@@ -45,7 +45,7 @@ export interface PreferenceSchemaProperties {
     [name: string]: PreferenceSchemaProperty
 }
 export namespace PreferenceSchemaProperties {
-    export function is(obj: Object | undefined): obj is PreferenceSchemaProperties {
+    export function is(obj: unknown): obj is PreferenceSchemaProperties {
         return !!obj && typeof obj === 'object';
     }
 }
