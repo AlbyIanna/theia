@@ -2059,8 +2059,8 @@ export namespace ApplicationShell {
     }
 
     export namespace TrackableWidgetProvider {
-        export function is(widget: object | undefined): widget is TrackableWidgetProvider {
-            return !!widget && 'getTrackableWidgets' in widget;
+        export function is(widget: unknown): widget is TrackableWidgetProvider {
+            return !!widget && typeof widget === 'object' && 'getTrackableWidgets' in widget;
         }
     }
 

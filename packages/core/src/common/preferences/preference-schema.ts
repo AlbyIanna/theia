@@ -27,8 +27,8 @@ export interface PreferenceSchema {
     properties: PreferenceSchemaProperties
 }
 export namespace PreferenceSchema {
-    export function is(obj: Object | undefined): obj is PreferenceSchema {
-        return !!obj && ('properties' in obj) && PreferenceSchemaProperties.is((<any>obj)['properties']);
+    export function is(obj: unknown): obj is PreferenceSchema {
+        return !!obj && typeof obj === 'object' && ('properties' in obj) && PreferenceSchemaProperties.is((obj as PreferenceSchema).properties);
     }
     export function getDefaultScope(schema: PreferenceSchema): PreferenceScope {
         let defaultScope: PreferenceScope = PreferenceScope.Workspace;

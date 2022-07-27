@@ -1234,13 +1234,11 @@ export class CommonFrontendContribution implements FrontendApplicationContributi
             {
                 placeholder: nls.localizeByDefault('Select Color Theme (Up/Down Keys to Preview)'),
                 activeItem: items.find((item: QuickPickItem) => item.id === resetTo),
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                onDidChangeSelection: (quickPick: any, selectedItems: Array<QuickPickItem>) => {
+                onDidChangeSelection: (quickPick: QuickPick<QuickPickItem>, selectedItems: Array<QuickPickItem>) => {
                     resetTo = undefined;
                     previewTheme(selectedItems[0].id!);
                 },
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                onDidChangeActive: (quickPick: any, activeItems: Array<QuickPickItem>) => {
+                onDidChangeActive: (quickPick: QuickPick<QuickPickItem>, activeItems: Array<QuickPickItem>) => {
                     previewTheme(activeItems[0].id!);
                 },
                 onDidHide: () => {
